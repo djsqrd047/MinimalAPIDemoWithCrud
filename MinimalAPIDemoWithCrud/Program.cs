@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
 using MinimalAPIDemoWithCrudDbContext;
-
 using MinimalAPIDemoWithCrudModels;
-
 using MinimalAPIDemoWithCrudServices;
 using MinimalAPIDemoWithCrudServices.Interfaces;
 
@@ -33,6 +30,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+
+#region CRUD Operations
 app.MapGet("/stores", ([FromServices] IMinimalAPIDemoWithCrudRepo repo) =>
 {
     return Results.Ok(repo.GetAllStores());
@@ -61,4 +60,4 @@ app.MapPut("/stores/{storeNumber}", ([FromServices] IMinimalAPIDemoWithCrudRepo 
 }).WithName("Update Store");
 
 app.Run();
-
+#endregion
