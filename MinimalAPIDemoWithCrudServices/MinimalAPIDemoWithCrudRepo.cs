@@ -18,6 +18,17 @@ namespace MinimalAPIDemoWithCrudServices
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
+
+        public bool DeleteFromDBByStoreNumber(int storeNumber)
+        {
+            var storeToBeDeleted = _context.StoreInformation.FirstOrDefault(x => x.StoreNumber == storeNumber);
+            if (storeToBeDeleted != null)
+            {
+                _context.Remove(storeToBeDeleted);
+            }
+            return Save();
+        }
+
         public IEnumerable<StoreInformation> GetAllStores()
         {
             return _context.StoreInformation.ToList();
@@ -88,8 +99,6 @@ namespace MinimalAPIDemoWithCrudServices
         {
             return (_context.SaveChanges() >= 0);
         }
-
-
 
         public bool UpdateStoreInformation(StoreInformation storeInformation)
         {

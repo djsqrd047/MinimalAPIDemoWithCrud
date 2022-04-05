@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 using MinimalAPIDemoWithCrudDbContext;
+
 using MinimalAPIDemoWithCrudModels;
+
 using MinimalAPIDemoWithCrudServices;
 using MinimalAPIDemoWithCrudServices.Interfaces;
 
@@ -58,6 +61,11 @@ app.MapPut("/stores/{storeNumber}", ([FromServices] IMinimalAPIDemoWithCrudRepo 
     return Results.Ok(updateStore);
 
 }).WithName("Update Store");
+
+app.MapDelete("/stores/{storeNumber}", ([FromServices] IMinimalAPIDemoWithCrudRepo repo, int storeNumber) =>
+{
+    return Results.Ok(repo.DeleteFromDBByStoreNumber(storeNumber));
+});
 
 app.Run();
 #endregion

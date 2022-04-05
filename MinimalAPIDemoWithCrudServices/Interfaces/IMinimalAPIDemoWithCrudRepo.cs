@@ -15,5 +15,6 @@ namespace MinimalAPIDemoWithCrudServices.Interfaces
         public bool InsertNewStoreInformation(StoreInformation storeInformation);
         public bool UpdateStoreInformation(StoreInformation storeInformation);
         public bool Save();
+        public bool DeleteFromDBByStoreNumber(int storeNumber);
     }
 }
