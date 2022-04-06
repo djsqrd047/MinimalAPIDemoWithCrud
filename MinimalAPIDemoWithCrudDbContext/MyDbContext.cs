@@ -23,8 +23,8 @@ namespace MinimalAPIDemoWithCrudDbContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");//work
+            optionsBuilder.UseSqlServer("Server=DESKTOP-J89CJKG\\SQLEXPRESS;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");//work
             base.OnConfiguring(optionsBuilder);
         }
     }

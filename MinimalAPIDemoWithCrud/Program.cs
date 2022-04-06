@@ -18,7 +18,7 @@ builder.Services.AddTransient<IMinimalAPIDemoWithCrudRepo, MinimalAPIDemoWithCru
 
 builder.Services.AddDbContext<MyDbContext>(options =>
 {
-    options.UseSqlServer(@"Server=localhost\\SQLEXPRESS;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");
+    options.UseSqlServer(@"Server=DESKTOP-J89CJKG\\SQLEXPRESS;Database=MinimalAPIDemoWithCrudDB;Trusted_Connection=True;");
 });
 
 
